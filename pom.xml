@@ -13,6 +13,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
+        <java.runtime.version>11</java.runtime.version>
+        <heroku.appName>api-asker-dev</heroku.appName>
+
         <jaxrs.version>2.1.1</jaxrs.version>
         <jersey.version>2.29</jersey.version>
         <mvn-war-plugin.version>3.3.1</mvn-war-plugin.version>
@@ -148,7 +151,8 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.3</version>
                 <configuration>
-                    <jdkVersion>11</jdkVersion>
+                    <jdkVersion>${java.runtime.version}</jdkVersion>
+                    <appName>${heroku.appName}</appName>
                 </configuration>
             </plugin>
         </plugins>
