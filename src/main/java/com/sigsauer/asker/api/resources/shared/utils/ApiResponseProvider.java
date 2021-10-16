@@ -24,7 +24,7 @@ public class ApiResponseProvider implements MessageBodyWriter<ApiResponse>  {
 
     @Override
     public boolean isWriteable(Class<?> aClass, Type type, Annotation[] annotations, MediaType mediaType) {
-        return true; //type == ApiResponse.class;
+        return type == ApiResponse.class;
     }
 
     @Override

@@ -23,7 +23,8 @@
         <logger.version>1.7.30</logger.version>
 
         <heroku.version>3.0.3</heroku.version>
-        <heroku.application>api-asker-dev</heroku.application>
+        <heroku.dev.application>api-asker-dev</heroku.dev.application>
+        <heroku.dev.application>api-asker-stage</heroku.dev.application>
         <heroku.java>11</heroku.java>
 
     </properties>
@@ -185,7 +186,6 @@
                 <version>${heroku.version}</version>
                 <configuration>
                     <jdkVersion>${heroku.java}</jdkVersion>
-                    <appName>${heroku.application}</appName>
                 </configuration>
             </plugin>
         </plugins>
