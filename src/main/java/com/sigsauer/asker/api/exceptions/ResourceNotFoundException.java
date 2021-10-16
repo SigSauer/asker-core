@@ -1,4 +1,4 @@
-package com.sigsauer.asker.app.exceptions;
+package com.sigsauer.asker.api.exceptions;
 
 public class ResourceNotFoundException {
 }

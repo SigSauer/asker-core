@@ -1,4 +1,4 @@
-package com.sigsauer.asker.app.config;
+package com.sigsauer.asker.api.config;
 
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -8,7 +8,8 @@ public class ApplicationConfig extends ResourceConfig {
 
     public ApplicationConfig() {
         packages("com.sigsauer.asker.app.resources", "com.sigsauer.asker.app.exceptions");
-//        register(new AuthenticationFilter());
+        //register(ApiResponseProvider.class);
+//       register(new AuthenticationFilter());
 //        register(new ApplicationBinder());
 //        register(MultiPartFeature.class);
     }

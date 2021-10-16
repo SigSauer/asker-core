@@ -1,4 +1,4 @@
-package com.sigsauer.asker.app;
+package com.sigsauer.asker.api;
 
 public class HibernateStandAlone {
 

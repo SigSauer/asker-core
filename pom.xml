@@ -13,25 +13,31 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <java.runtime.version>11</java.runtime.version>
-        <heroku.appName>api-asker-dev</heroku.appName>
-
         <jaxrs.version>2.1.1</jaxrs.version>
         <jersey.version>2.29</jersey.version>
-        <mvn-war-plugin.version>3.3.1</mvn-war-plugin.version>
-
         <hibernate.version>5.5.3.Final</hibernate.version>
         <postgresql.version>42.2.23</postgresql.version>
         <jwt.version>3.18.1</jwt.version>
+        <gson.version>2.8.5</gson.version>
+        <javax.version>4.0.1</javax.version>
+        <logger.version>1.7.30</logger.version>
+
+        <heroku.version>3.0.3</heroku.version>
+        <heroku.application>api-asker-dev</heroku.application>
+        <heroku.java>11</heroku.java>
+
     </properties>
 
     <dependencies>
+
+        <!--JavaX Servlet API-->
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${jaxrs.version}</version>
         </dependency>
 
+        <!--Jersey Servlet container API-->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
@@ -48,7 +54,57 @@
             <version>${jersey.version}</version>
         </dependency>
 
-<!--        <dependency>-->
+        <!--Hibernate JDBC-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!--PostgreSQL JDBC-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <!--Lombok plugin-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--JavaX Servlet-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Google JSON Provider -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!-- Log4J Logging Provider -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${logger.version}</version>
+        </dependency>
+
+
+
+
+
+        <!--        <dependency>-->
 <!--            <groupId>org.glassfish.jersey.core</groupId>-->
 <!--            <artifactId>jersey-server</artifactId>-->
 <!--            <version>${jersey.version}</version>-->
@@ -59,22 +115,11 @@
 <!--            <version>${jersey.version}</version>-->
 <!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
-        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--            <artifactId>jackson-databind</artifactId>-->
-<!--            <version>2.8.9</version>-->
-<!--        </dependency>-->
+
+
+
+
 
 <!--        <dependency>-->
 <!--            <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
@@ -82,13 +127,6 @@
 <!--            <version>2.2.3</version>-->
 <!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
 
 <!--        <dependency>-->
 <!--            <groupId>com.auth0</groupId>-->
@@ -141,18 +179,13 @@
     <build>
         <finalName>asker</finalName>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-war-plugin</artifactId>-->
-<!--                <version>${mvn-war-plugin.version}</version>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>${heroku.version}</version>
                 <configuration>
-                    <jdkVersion>${java.runtime.version}</jdkVersion>
-                    <appName>${heroku.appName}</appName>
+                    <jdkVersion>${heroku.java}</jdkVersion>
+                    <appName>${heroku.application}</appName>
                 </configuration>
             </plugin>
         </plugins>
