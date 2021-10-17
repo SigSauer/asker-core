@@ -11,7 +11,11 @@ import java.util.UUID;
 @SuppressWarnings("unchecked")
 public class UserRepositoryImpl extends AbstractEntityRepository<UserDO, UUID> implements UserRepository {
 
-    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private BCryptPasswordEncoder encoder;
+
+    public UserRepositoryImpl() {
+        encoder = new BCryptPasswordEncoder();
+    }
 
     @Override
     public Optional<UserDO> findByEmail(String email) {
