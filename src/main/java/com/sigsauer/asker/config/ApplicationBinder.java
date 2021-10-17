@@ -1,11 +1,9 @@
-//package com.sigsauer.asker.app.config;
+//package com.sigsauer.asker.config;
 //
 //import org.glassfish.jersey.internal.inject.AbstractBinder;
 //import org.glassfish.jersey.internal.inject.InjectionManager;
 //
 //public class ApplicationBinder extends AbstractBinder {
-//
-//    private InjectionManager injectionManager;
 //
 //    @Override
 //    protected void configure() {

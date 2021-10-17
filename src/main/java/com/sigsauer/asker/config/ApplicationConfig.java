@@ -1,4 +1,4 @@
-package com.sigsauer.asker.api.config;
+package com.sigsauer.asker.config;
 
 import org.glassfish.jersey.server.ResourceConfig;
 

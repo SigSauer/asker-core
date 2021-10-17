@@ -1,6 +1,5 @@
-package com.sigsauer.asker.api.resources.shared.utils;
+package com.sigsauer.asker.extapi.shared;
 
-import com.sigsauer.asker.api.resources.shared.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

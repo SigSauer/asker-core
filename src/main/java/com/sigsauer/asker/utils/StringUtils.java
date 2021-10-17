@@ -1,4 +1,4 @@
-package com.sigsauer.asker.api.utils;
+package com.sigsauer.asker.utils;
 
 public class StringUtils {
 

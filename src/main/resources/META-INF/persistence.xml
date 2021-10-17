@@ -2,7 +2,7 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="asker-psql">
+    <persistence-unit name="local">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
@@ -10,6 +10,18 @@
             <property name="hibernate.connection.username" value=""/>   <!--todo-->
             <property name="hibernate.connection.password" value=""/>   <!--todo-->
             <property name="hibernate.connection.url" value=""/>        <!--todo-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="heroku">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="vycrpkxpiauabq"/>
+            <property name="hibernate.connection.password" value="5d8ac6e0e80d881108db9dcae4ba5023a728bf40b99bdf0b93efa4e4f8671ceb"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-176-34-105-15.eu-west-1.compute.amazonaws.com:5432/d9utsfjo6pk3s"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>

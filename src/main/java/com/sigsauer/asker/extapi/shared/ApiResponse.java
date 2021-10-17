@@ -1,4 +1,4 @@
-package com.sigsauer.asker.api.resources.shared;
+package com.sigsauer.asker.extapi.shared;
 
 import javax.ws.rs.core.Response.Status;
 import java.util.HashMap;
@@ -43,6 +43,11 @@ public class ApiResponse {
     //202
     public static ApiResponse accepted(String name, Object result) {
         return build(Status.ACCEPTED, name, result);
+    }
+
+    //202
+    public static ApiResponse accepted(String message) {
+        return build(Status.ACCEPTED, message);
     }
 
     //303

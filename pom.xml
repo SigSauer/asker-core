@@ -8,6 +8,7 @@
     <artifactId>asker-core</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
+    <name>asker-api</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -21,10 +22,11 @@
         <gson.version>2.8.5</gson.version>
         <javax.version>4.0.1</javax.version>
         <logger.version>1.7.30</logger.version>
+        <springsecurity.version>5.5.1</springsecurity.version>
 
         <heroku.version>3.0.3</heroku.version>
         <heroku.dev.application>api-asker-dev</heroku.dev.application>
-        <heroku.dev.application>api-asker-stage</heroku.dev.application>
+        <heroku.stage.application>api-asker-stage</heroku.stage.application>
         <heroku.java>11</heroku.java>
 
     </properties>
@@ -94,101 +96,141 @@
         </dependency>
 
         <!-- Log4J Logging Provider -->
-        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${logger.version}</version>
         </dependency>
 
+        <!-- JSON Web Token Provider -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
 
+        <!-- BCrypt Password Encoder -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${springsecurity.version}</version>
+        </dependency>
 
+        <!-- Common Logger (Required by BCrypt Password Encoder) -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
 
 
         <!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.core</groupId>-->
-<!--            <artifactId>jersey-server</artifactId>-->
-<!--            <version>${jersey.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.core</groupId>-->
-<!--            <artifactId>jersey-client</artifactId>-->
-<!--            <version>${jersey.version}</version>-->
-<!--        </dependency>-->
+        <!--            <groupId>org.glassfish.jersey.core</groupId>-->
+        <!--            <artifactId>jersey-server</artifactId>-->
+        <!--            <version>${jersey.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jersey.core</groupId>-->
+        <!--            <artifactId>jersey-client</artifactId>-->
+        <!--            <version>${jersey.version}</version>-->
+        <!--        </dependency>-->
 
 
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
+        <!--            <artifactId>jackson-jaxrs-json-provider</artifactId>-->
+        <!--            <version>2.2.3</version>-->
+        <!--        </dependency>-->
 
 
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jersey.media</groupId>-->
+        <!--            <artifactId>jersey-media-json-jackson</artifactId>-->
+        <!--            <version>2.17</version>-->
+        <!--        </dependency>-->
 
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-logging/commons-logging &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>commons-logging</groupId>-->
+        <!--            <artifactId>commons-logging</artifactId>-->
+        <!--            <version>1.2</version>-->
+        <!--        </dependency>-->
 
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jersey.test-framework.providers</groupId>-->
+        <!--            <artifactId>jersey-test-framework-provider-jetty</artifactId>-->
+        <!--            <version>${jersey.version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
-<!--            <artifactId>jackson-jaxrs-json-provider</artifactId>-->
-<!--            <version>2.2.3</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.jupiter</groupId>-->
+        <!--            <artifactId>junit-jupiter-api</artifactId>-->
+        <!--            <version>5.3.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
-
-<!--        <dependency>-->
-<!--            <groupId>com.auth0</groupId>-->
-<!--            <artifactId>java-jwt</artifactId>-->
-<!--            <version>${jwt.version}</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-crypto</artifactId>-->
-<!--            <version>5.5.1</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.media</groupId>-->
-<!--            <artifactId>jersey-media-json-jackson</artifactId>-->
-<!--            <version>2.17</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/commons-logging/commons-logging &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>commons-logging</groupId>-->
-<!--            <artifactId>commons-logging</artifactId>-->
-<!--            <version>1.2</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.test-framework.providers</groupId>-->
-<!--            <artifactId>jersey-test-framework-provider-jetty</artifactId>-->
-<!--            <version>${jersey.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-api</artifactId>-->
-<!--            <version>5.3.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-engine</artifactId>-->
-<!--            <version>5.3.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.jupiter</groupId>-->
+        <!--            <artifactId>junit-jupiter-engine</artifactId>-->
+        <!--            <version>5.3.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
     </dependencies>
 
-    <build>
-        <finalName>asker</finalName>
-        <plugins>
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>${heroku.version}</version>
-                <configuration>
-                    <jdkVersion>${heroku.java}</jdkVersion>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <finalName>asker</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>com.heroku.sdk</groupId>
+                        <artifactId>heroku-maven-plugin</artifactId>
+                        <version>${heroku.version}</version>
+                        <configuration>
+                            <jdkVersion>${heroku.java}</jdkVersion>
+                            <appName>${heroku.dev.application}</appName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>stage</id>
+            <build>
+                <finalName>asker</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>com.heroku.sdk</groupId>
+                        <artifactId>heroku-maven-plugin</artifactId>
+                        <version>${heroku.version}</version>
+                        <configuration>
+                            <jdkVersion>${heroku.java}</jdkVersion>
+                            <appName>${heroku.stage.application}</appName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>local</id>
+            <build>
+                <finalName>asker</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>com.heroku.sdk</groupId>
+                        <artifactId>heroku-maven-plugin</artifactId>
+                        <version>${heroku.version}</version>
+                        <configuration>
+                            <jdkVersion>${heroku.java}</jdkVersion>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
 </project>

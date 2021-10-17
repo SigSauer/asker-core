@@ -1,7 +1,6 @@
-package com.sigsauer.asker.api.resources.shared.utils;
+package com.sigsauer.asker.extapi.shared;
 
 import com.google.gson.GsonBuilder;
-import com.sigsauer.asker.api.resources.shared.ApiResponse;
 
 public class ResponseWrapper {
 
