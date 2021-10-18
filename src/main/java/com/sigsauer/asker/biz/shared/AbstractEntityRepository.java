@@ -13,7 +13,7 @@ public abstract class AbstractEntityRepository<T extends EntityDO, ID> {
 
     private final Class<T> type = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
-    private static final EntityManager em = Persistence.createEntityManagerFactory("local").createEntityManager();
+    private static final EntityManager em = Persistence.createEntityManagerFactory(System.getenv("persistence")).createEntityManager();
 
     public static EntityManager getEntityManager() {
         return em;

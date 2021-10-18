@@ -181,7 +181,29 @@
 
     <profiles>
         <profile>
+            <id>local</id>
+            <properties>
+                <persistence>local</persistence>
+            </properties>
+            <build>
+                <finalName>asker</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>com.heroku.sdk</groupId>
+                        <artifactId>heroku-maven-plugin</artifactId>
+                        <version>${heroku.version}</version>
+                        <configuration>
+                            <jdkVersion>${heroku.java}</jdkVersion>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>dev</id>
+            <properties>
+                <persistence>heroku</persistence>
+            </properties>
             <build>
                 <finalName>asker</finalName>
                 <plugins>
@@ -214,22 +236,7 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>local</id>
-            <build>
-                <finalName>asker</finalName>
-                <plugins>
-                    <plugin>
-                        <groupId>com.heroku.sdk</groupId>
-                        <artifactId>heroku-maven-plugin</artifactId>
-                        <version>${heroku.version}</version>
-                        <configuration>
-                            <jdkVersion>${heroku.java}</jdkVersion>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+
     </profiles>
 
 
