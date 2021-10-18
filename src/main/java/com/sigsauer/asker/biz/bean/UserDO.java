@@ -1,6 +1,6 @@
-package com.sigsauer.asker.biz.user.bean;
+package com.sigsauer.asker.biz.bean;
 
-import com.sigsauer.asker.biz.shared.bean.EntityDO;
+import com.sigsauer.asker.biz.bean.shared.EntityDO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +31,7 @@ public class UserDO extends EntityDO {
     private String locale;
 
     @Column(name = "created", updatable = false)
-    private LocalDateTime created;
+    private LocalDateTime created = LocalDateTime.now();
 
     @Column(name = "activity")
     private LocalDateTime activity;

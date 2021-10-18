@@ -1,4 +1,4 @@
-package com.sigsauer.asker.biz.shared.bean;
+package com.sigsauer.asker.biz.bean.shared;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,13 +25,22 @@ public abstract class EntityDO implements Serializable {
         return id;
     }
 
+    public String getID() {
+        return this.id.toString();
+    }
+
     public void setId(UUID id) {
         this.id = id;
     }
 
-    public void setId(String id) {
-        this.id = UUID.fromString(id);
+    public void setID(String id) {
+        this.id = id == null || id.isEmpty() ? null : UUID.fromString(id);
     }
 
-
+    @Override
+    public String toString() {
+        return "EntityDO{" +
+                "id=" + id +
+                '}';
+    }
 }

@@ -1,5 +1,7 @@
-package com.sigsauer.asker.extapi.shared;
+package com.sigsauer.asker.config.providers;
 
+import com.sigsauer.asker.extapi.shared.ApiResponse;
+import com.sigsauer.asker.extapi.shared.ResponseWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +30,6 @@ public class ApiResponseProvider implements MessageBodyWriter<ApiResponse>  {
 
     @Override
     public void writeTo(ApiResponse response, Class<?> aClass, Type type, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> multivaluedMap, OutputStream outputStream) throws IOException {
-        log.debug(response.toString());
         switch (mediaType.toString()) {
             case MediaType.APPLICATION_JSON:
                 writeToJSON(outputStream, response);
