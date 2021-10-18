@@ -1,5 +1,6 @@
 package com.sigsauer.asker.extapi.shared;
 
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.util.HashMap;
 
@@ -21,7 +22,7 @@ public class ApiResponse {
     }
 
 
-    private void setMessage(String message) {
+    public void addMessage(String message) {
         this.message = message;
     }
 
@@ -80,6 +81,11 @@ public class ApiResponse {
         return build(Status.METHOD_NOT_ALLOWED, message);
     }
 
+    //409
+    public static ApiResponse conflict(String message) {
+        return build(Status.CONFLICT, message);
+    }
+
     //500
     public static ApiResponse serverError(String message) {
         return build(Status.INTERNAL_SERVER_ERROR, message);
@@ -90,9 +96,9 @@ public class ApiResponse {
         return build(Status.NOT_IMPLEMENTED, message);
     }
 
-    private static ApiResponse build(Status status, String message) {
+    public static ApiResponse build(Status status, String message) {
         ApiResponse response = new ApiResponse(status);
-        response.setMessage(message);
+        response.addMessage(message);
         return response;
     }
 
@@ -102,4 +108,7 @@ public class ApiResponse {
         return response;
     }
 
+    public Response toResponse() {
+        return Response.status(status).entity(message).build();
+    }
 }

@@ -1,14 +1,13 @@
 package com.sigsauer.asker.extapi.exceptions;
 
-public class ResourceNotFoundException extends RuntimeException {
-
+public class ResourceNotFoundException extends ApiException {
 
     public ResourceNotFoundException() {
-        super("Resource does not exist");
+        super("Wrong Request URL");
     }
 
-    public ResourceNotFoundException(String resource) {
-        super(String.format("Resource %s does not exist", resource));
+    public ResourceNotFoundException(String message) {
+        super(message);
     }
 
 }

@@ -1,6 +1,6 @@
-package com.sigsauer.asker.biz.shared;
+package com.sigsauer.asker.biz.repositories.shared;
 
-import com.sigsauer.asker.biz.shared.bean.EntityDO;
+import com.sigsauer.asker.biz.bean.shared.EntityDO;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +13,6 @@ public interface EntityRepository<T extends EntityDO, ID> {
 
     T save(T entity);
 
-    void delete(ID id);
+    boolean delete(ID id);
 
 }

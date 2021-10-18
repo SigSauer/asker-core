@@ -1,7 +1,7 @@
-package com.sigsauer.asker.biz.user;
+package com.sigsauer.asker.biz.repositories;
 
-import com.sigsauer.asker.biz.shared.EntityRepository;
-import com.sigsauer.asker.biz.user.bean.UserDO;
+import com.sigsauer.asker.biz.bean.UserDO;
+import com.sigsauer.asker.biz.repositories.shared.EntityRepository;
 
 import java.util.Optional;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package com.sigsauer.asker.biz.shared;
+package com.sigsauer.asker.biz.repositories.shared;
 
-import com.sigsauer.asker.biz.shared.bean.EntityDO;
+import com.sigsauer.asker.biz.bean.shared.EntityDO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -30,7 +30,6 @@ public abstract class AbstractEntityRepository<T extends EntityDO, ID> {
     public T save(T entity){
         em.getTransaction().begin();
         if(entity.getId() == null) {
-//            entity.setId(UUID.randomUUID());
             em.persist(entity);
         }else {
             em.merge(entity);
@@ -39,13 +38,14 @@ public abstract class AbstractEntityRepository<T extends EntityDO, ID> {
         return entity;
     }
 
-    public void delete(ID id){
+    public boolean delete(ID id){
         em.getTransaction().begin();
         Optional<T> entity = this.findById(id);
         if(entity.isPresent()) {
-            em.remove(entity);
+            em.remove(entity.get());
         }
         em.getTransaction().commit();
+        return entity.isPresent();
     }
 
 

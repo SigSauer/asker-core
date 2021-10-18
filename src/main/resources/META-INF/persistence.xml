@@ -10,7 +10,7 @@
             <property name="hibernate.connection.username" value="asker"/>
             <property name="hibernate.connection.password" value="asker"/>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/asker"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 
@@ -22,7 +22,7 @@
             <property name="hibernate.connection.username" value="vycrpkxpiauabq"/>
             <property name="hibernate.connection.password" value="5d8ac6e0e80d881108db9dcae4ba5023a728bf40b99bdf0b93efa4e4f8671ceb"/>
             <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-176-34-105-15.eu-west-1.compute.amazonaws.com:5432/d9utsfjo6pk3s"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>

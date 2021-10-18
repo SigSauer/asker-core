@@ -1,4 +1,4 @@
-package com.sigsauer.asker.config.Bean;
+package com.sigsauer.asker.config.bean;
 
 public enum Localization {
 
